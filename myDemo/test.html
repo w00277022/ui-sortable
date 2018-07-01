@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script src="ui-sortable-0.19.0/sortable.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="demo.css">
+    <script src="main.js">
+    </script>
+</head>
+<body>
+
+<section ng-app="sortableApp">
+    <div>
+        <label>Name:</label>
+        <input type="text" ng-model="yourName" placeholder="Enter a name here">
+        <hr>
+        <h1>Hello {{yourName}}!</h1>
+    </div>
+    <h1>Sortable items</h1>
+    <div ng-controller="sortableController" class="section row">
+        <div class="col-sm-offset-2 col-sm-4">
+            <ul ui-sortable="sortableOptions" ng-model="list" class="list">
+                <li ng-repeat="item in list" class="item">{{item.text}}</li>
+            </ul>
+        </div>
+        <div class="col-sm-4">
+            <ul class="list logList">
+                <li ng-repeat="entry in sortingLog" class="logItem">{{entry.Text}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <h1>Connected items</h1>
+    <div ng-controller="connectedController" class="section row connectedItemsExample">
+        <div class="col-sm-offset-2 col-sm-4">
+            <ul ui-sortable="sortableOptions" ng-model="leftArray" class="list">
+                <li ng-repeat="item in leftArray" class="item">{{item.text}}</li>
+            </ul>
+        </div>
+        <div class="col-sm-4">
+            <ul ui-sortable="sortableOptions" ng-model="rightArray" class="list">
+                <li ng-repeat="item in rightArray" class="item">{{item.text}}</li>
+            </ul>
+        </div>
+    </div>
+</section>
+</body>
+</html>
